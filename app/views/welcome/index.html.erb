@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1>HANATABA（仮）</h1>
+<h2>一輪でもHANATABA</h2>
+<p>HANATABA（仮）は、いつでもあなたの花欲に応えます。</p>
+
+<ul>
+  <li><%= link_to "花を探す", items_path %></li>
+  <li>
+    <%= link_to "マイページ", edit_user_path if @login == true%>
+    <%= link_to "マイページ", new_user_path if @login.nil? %>
+  </li>
+  <ul>
+    <li><%= link_to "カート", user_items_path %></li>
+  </ul>
+</ul>

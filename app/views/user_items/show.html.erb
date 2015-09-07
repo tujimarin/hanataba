@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_item.user %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @user_item.item %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @user_item.amount %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @user_item.status %>
+</p>
+
+<p>
+  <strong>Change status date:</strong>
+  <%= @user_item.change_status_date %>
+</p>
+
+<%= link_to 'Edit', edit_user_item_path(@user_item) %> |
+<%= link_to 'Back', user_items_path %>
