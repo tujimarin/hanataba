@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  get "admin" => "admin#index"
+  get "admin" => "items#new"
 
   resources :items
   resources :users
+
+  post "cart" => "cart#index"
+  get "cart" => "cart#edit"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

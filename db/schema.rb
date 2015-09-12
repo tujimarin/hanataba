@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907093702) do
+ActiveRecord::Schema.define(version: 20150908021522) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -26,9 +26,8 @@ ActiveRecord::Schema.define(version: 20150907093702) do
     t.integer  "item_id"
     t.integer  "amount"
     t.string   "status"
-    t.date     "change_status_date"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "user_items", ["item_id"], name: "index_user_items_on_item_id"
@@ -42,8 +41,10 @@ ActiveRecord::Schema.define(version: 20150907093702) do
     t.integer  "tel"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "change_status_date"
+    t.string   "password_digest"
   end
 
 end

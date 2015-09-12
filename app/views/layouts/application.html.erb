@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hanataba</title>
+  <title>HANATABA（仮） <%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<h1><%= link_to "HANATABA（仮）", root_path %></h1>
+
+<header>
+  <ul>
+    <li><%= link_to "花を探す", items_path %></li>
+    <li>
+      <%= link_to "マイページ", edit_user_path if @login == true%>
+      <%= link_to "マイページ", new_user_path if @login.nil? %>
+    </li>
+    <ul>
+      <li><%= link_to "カート", cart_path %></li>
+    </ul>
+  </ul>
+</header>
+
+<p id="notice"><%= notice %></p>
 
 <%= yield %>
 

@@ -1,6 +1,8 @@
-<h1>Editing Item</h1>
+<% provide(:title, ' 商品管理') %>
+
+<h2>商品管理</h2>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', items_path %>
+<%= link_to '詳細', @item %> |
+<%= link_to '戻る', admin_path %>

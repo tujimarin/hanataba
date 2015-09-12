@@ -1,0 +1,31 @@
+<% provide(:title, ' 買い物カゴ ') %>
+
+<h2>買い物カゴ</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>商品説明</th>
+      <th>購入数</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= label("item[id]", item.id, item.name) %></td>
+        <td><%= label("item[id]", item.id, item.price) %></td>
+        <td><%= item.comment %></td>
+        <td><%= session[:cart_item]["amount"]["#{item.id}"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<p><%= button_to "購入手続きへ", users_path, method: :get %></p>
+<p><%= button_to "カゴの中身を編集", cart_path, method: :get %></p>

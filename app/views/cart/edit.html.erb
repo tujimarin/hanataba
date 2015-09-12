@@ -1,6 +1,6 @@
-<% provide(:title, ' 商品一覧 ') %>
+<% provide(:title, ' 買い物カゴ ') %>
 
-<h2>商品一覧</h2>
+<h2>買い物カゴ</h2>
 
 <%= form_tag(cart_path, method: :post) do %>
 
@@ -22,13 +22,17 @@
         <td><%= label("item[id]", item.id, item.name) %></td>
         <td><%= label("item[id]", item.id, item.price) %></td>
         <td><%= item.comment %></td>
-        <td><%= check_box("item[id]", item.id) %></td>
-        <td><%= number_field("item[amount]", item.id, value: 1) %></td>
+        <td><%= check_box("item[id]", item.id, checked: session[:cart_item]["id"]["#{item.id}"] == "1" ? true : false) %></td>
+        <td><%= number_field("item[amount]", item.id, value: session[:cart_item]["amount"]["#{item.id}"] ||= 1) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= submit_tag("チェックした商品を買い物かごに入れる") %>
+<div class="actions">
+  <%= submit_tag("買い物カゴを更新する") %>
+</div>
 
 <% end %>
+
+<p><%= button_to "購入手続きへ", users_path, method: :get %></p>

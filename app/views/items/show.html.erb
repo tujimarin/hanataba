@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, ' 商品管理') %>
+
+<h2>商品管理</h2>
 
 <p>
-  <strong>Name:</strong>
+  <strong>商品名:</strong>
   <%= @item.name %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>価格:</strong>
   <%= @item.price %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>商品説明:</strong>
   <%= @item.comment %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to '編集', edit_item_path(@item) %> |
+<%= link_to '戻る', admin_path %>

@@ -12,34 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, "お名前" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :postal_code %><br>
-    <%= f.number_field :postal_code %>
+    <%= f.label :postal_code, "郵便番号" %><br>
+    <%= f.text_field :postal_code %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.label :address, "ご住所" %><br>
+    <%= f.text_area :address %>
   </div>
   <div class="field">
-    <%= f.label :credit_card %><br>
+    <%= f.label :credit_card, "クレジットカード情報" %><br>
     <%= f.text_field :credit_card %>
   </div>
   <div class="field">
-    <%= f.label :tel %><br>
-    <%= f.number_field :tel %>
+    <%= f.label :tel, "お電話番号" %><br>
+    <%= f.telephone_field :tel %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email, "メールアドレス" %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.label :password, "パスワード" %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "パスワード再入力" %><br>
+    <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "購入する" %>
   </div>
 <% end %>

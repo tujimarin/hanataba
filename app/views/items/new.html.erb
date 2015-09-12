@@ -1,5 +1,33 @@
-<h1>New Item</h1>
+<% provide(:title, ' 商品管理') %>
+
+<h2>商品管理</h2>
+
+<h3>商品一覧</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>値段</th>
+      <th>商品説明</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td><%= item.comment %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>商品新規登録</h3>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', items_path %>
