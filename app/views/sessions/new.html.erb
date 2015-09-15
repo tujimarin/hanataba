@@ -1,0 +1,16 @@
+<% provide(:title, '') %>
+<h2>ログイン</h2>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <div class="field">
+    <%= f.label :tel, "電話番号" %>
+    <%= f.telephone_field :tel %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password %>
+  </div>
+  <%= f.submit "ログイン" %>
+<% end %>
+
+<p><%= link_to "ログインできない場合は、こちらから新しく情報を登録してください", signup_path %>。</p>

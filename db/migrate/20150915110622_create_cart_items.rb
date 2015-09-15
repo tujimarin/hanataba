@@ -1,6 +1,6 @@
-class CreateUserItems < ActiveRecord::Migration
+class CreateCartItems < ActiveRecord::Migration
   def change
-    create_table :user_items do |t|
+    create_table :cart_items do |t|
       t.references :user, index: true, foreign_key: true
       t.references :item, index: true, foreign_key: true
       t.integer :amount

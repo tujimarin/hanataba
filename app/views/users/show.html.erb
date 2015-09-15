@@ -1,39 +1,41 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, ' 登録情報 ') %>
+<h2>登録情報</h2>
 
 <p>
-  <strong>Name:</strong>
+  <strong>氏名:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>Postal code:</strong>
+  <strong>郵便番号:</strong>
   <%= @user.postal_code %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>住所:</strong>
   <%= @user.address %>
 </p>
 
 <p>
-  <strong>Credit card:</strong>
+  <strong>クレジットカード情報:</strong>
   <%= @user.credit_card %>
 </p>
 
 <p>
-  <strong>Tel:</strong>
+  <strong>電話番号:</strong>
   <%= @user.tel %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>メールアドレス:</strong>
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+<%= button_to '情報を編集する', edit_user_path(@user), method: :get %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h3>発注中の花</h3>
+<ul>
+  <li>あさがお<%= button_to "削除", "#", method: :delete %></li>
+  <li>ひまわり<%= button_to "削除", "#", method: :delete %></li>
+  <li>バラ<%= button_to "削除", "#", method: :delete %></li>
+</ul>

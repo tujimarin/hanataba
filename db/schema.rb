@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908021522) do
+ActiveRecord::Schema.define(version: 20150915110622) do
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.integer  "amount"
+    t.string   "status"
+    t.date     "change_status_date"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "cart_items", ["item_id"], name: "index_cart_items_on_item_id"
+  add_index "cart_items", ["user_id"], name: "index_cart_items_on_user_id"
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
@@ -20,18 +33,6 @@ ActiveRecord::Schema.define(version: 20150908021522) do
     t.datetime "updated_at", null: false
     t.text     "comment"
   end
-
-  create_table "user_items", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "item_id"
-    t.integer  "amount"
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "user_items", ["item_id"], name: "index_user_items_on_item_id"
-  add_index "user_items", ["user_id"], name: "index_user_items_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -45,6 +46,9 @@ ActiveRecord::Schema.define(version: 20150908021522) do
     t.datetime "updated_at",         null: false
     t.string   "change_status_date"
     t.string   "password_digest"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

@@ -1,5 +1,3 @@
-<% provide(:title, ' 商品一覧 ') %>
-
 <h2>商品一覧</h2>
 
 <%= form_tag(cart_items_path, method: :post) do %>
@@ -27,6 +25,8 @@
   </tbody>
 </table>
 
-<%= submit_tag("チェックした商品を買い物かごに入れる") %>
+<hr />
+
+<%= submit_tag("買い物かごに入れる") %>
 
 <% end %>

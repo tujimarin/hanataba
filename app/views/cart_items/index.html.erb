@@ -1,0 +1,41 @@
+<% provide(:title, ' 買い物カゴ ') %>
+
+<h2>買い物カゴ</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>商品説明</th>
+      <th>発注数</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart_items.each do |ci| %>
+      <tr>
+        <td><%= @items.find(ci.item_id).name %></td>
+        <td><%= @items.find(ci.item_id).price %></td>
+        <td><%= @items.find(ci.item_id).comment %></td>
+        <td><%= ci.amount %></td>
+        <td><%= ci.status %></td>
+        <td><%= link_to 'Show', ci %></td>
+        <td><%= link_to 'Edit', edit_cart_item_path(ci) %></td>
+        <td><%= link_to 'Destroy', ci, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr />
+
+<p>
+  <%= button_to "購入", current_user, method: :post if loggedin? %>
+  <%= button_to "情報を登録して購入", users_path, method: :get unless loggedin? %>
+</p>
+<p>
+  <%= button_to "花を追加する", new_cart_item_path, method: :get %>
+</p>
+

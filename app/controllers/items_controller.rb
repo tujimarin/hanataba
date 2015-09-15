@@ -2,8 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    session[:cart_item] ||= Hash.new { |k,v| k[v] = {} }
-    @items = Item.all
+    @items                = Item.all
   end
 
   def show
@@ -41,6 +40,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def set_item
     @item = Item.find(params[:id])
   end
