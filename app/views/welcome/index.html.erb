@@ -6,7 +6,7 @@
   <%= image_tag 'common/site_title_img.png',class: 'title_img' %>
   <%= image_tag 'common/main_content_img.jpg',class: 'main_img' %>
 
-  <%= form_for(:session, url: sessions_path) do |f| %>
+  <%= form_for(:session, url: sessions_path, html: {id: :login_form}) do |f| %>
     <div class="field">
       <%= f.label :tel, "電話番号" %>
       <%= f.telephone_field :tel %>
@@ -16,6 +16,7 @@
       <%= f.password_field :password %>
     </div>
     <%= f.submit "ログイン" %>
+    <%= link_to "新規登録はこちら", new_user_path %>
   <% end %>
 
 </header>

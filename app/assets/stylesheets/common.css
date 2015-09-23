@@ -37,7 +37,7 @@ header#mainImg .title_img{
 }
 
 header form{
-    height: 100px;
+    height: 120px;
     position: absolute;
     /* top: 70%; */
     left: 0;
@@ -78,6 +78,14 @@ header form{
     color: #ffffff;
     background-color: #C06F6B;
     font-weight: bold;;
+}
+
+#login_form a{
+  color:#FFF;
+  font-size:12px;
+  margin:5px auto 0 auto;
+  display:block;
+  width:90%;
 }
 
 nav{
