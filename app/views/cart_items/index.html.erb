@@ -21,9 +21,8 @@
         <td><%= @items.find(ci.item_id).comment %></td>
         <td><%= ci.amount %></td>
         <td><%= ci.status %></td>
-        <td><%= link_to 'Show', ci %></td>
-        <td><%= link_to 'Edit', edit_cart_item_path(ci) %></td>
-        <td><%= link_to 'Destroy', ci, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'キャンセル', ci,
+          method: :delete, data: { confirm: '本当に失注しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,8 +31,9 @@
 <hr />
 
 <p>
-  <%= button_to "購入", purchase_path if loggedin? %>
-  <%= button_to "情報を登録して購入", users_path, method: :get unless loggedin? %>
+  <%= button_to "発注", purchase_path,
+    data: { confirm: '本当に発注しますか？' } if logged_in? %>
+  <%= button_to "情報を登録して購入", users_path, method: :get unless logged_in? %>
 </p>
 <p>
   <%= button_to "花を追加する", new_cart_item_path, method: :get %>

@@ -7,7 +7,7 @@
       <th>価格</th>
       <th>商品説明</th>
       <th>発注数</th>
-      <th></th>
+      <th>発注日</th>
     </tr>
   </thead>
 
@@ -18,8 +18,7 @@
         <td><%= @items.find(ci.item_id).price %></td>
         <td><%= @items.find(ci.item_id).comment %></td>
         <td><%= ci.amount %></td>
-        <td><%= link_to 'キャンセル', ci,  method: :delete,
-          data: { confirm: '本当にキャンセルしますか？' } %></td>
+        <td><%= ci.change_status_date %></td>
       </tr>
     <% end %>
   </tbody>

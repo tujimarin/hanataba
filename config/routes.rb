@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :cart_items
   resources :sessions, only: [:new, :create, :destroy]
   post      "purchase" => "cart_items#purchase"
-  delete    "cart_imtes/:id" => "users#cancel_item"
+  delete    "cart_items/:id" => "users#cancel_item"
   get       "/signup"  => "users#new"
   get       "/login"   => "sessions#new"
   delete    "/logout"  => "sessions#destroy"

@@ -5,10 +5,16 @@
 
   <%= image_tag 'common/main_content_img.jpg' %>
 
-  <%= form_tag({controller: :users , action: :index},id: :loginForm, class: :loginForm) do %>
-    <div><label>ユーザID</label><%= text_field_tag :userId,'',size:20 %></div>
-    <div><label>パスワード</label><%= password_field_tag :userPasswd,'',size:8 %></div>
-    <%= submit_tag 'ログイン',class: 'button' %>
+  <%= form_for(:session, url: sessions_path) do |f| %>
+    <div class="field">
+      <%= f.label :tel, "電話番号" %>
+      <%= f.telephone_field :tel %>
+    </div>
+    <div class="field">
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+    </div>
+    <%= f.submit "ログイン" %>
   <% end %>
 
 </header>

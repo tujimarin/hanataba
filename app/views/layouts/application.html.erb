@@ -8,30 +8,32 @@
 </head>
 <body>
 
-<h1><%= link_to "HANATABA（仮）", root_path %></h1>
+<% unless yield(:title).empty? %>
 
-<header>
-  <ul>
-    <li><%= link_to "花を選ぶ", new_cart_item_path %></li>
-    <li>
-      <% if loggedin? %>
-        <%= link_to "マイページ", current_user %>
-      <% else %>
-        <%= link_to "登録", new_user_path %>
-      <% end %>
-    </li>
+  <h1><%= link_to "HANATABA（仮）", root_path %></h1>
+
+  <header>
     <ul>
-      <li><%= link_to "カート", cart_items_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to "花を選ぶ", new_cart_item_path %></li>
+        <li>
+          <%= link_to "マイページ", current_user %>
+          <ul>
+            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+            <li><%= link_to "カート", cart_items_path %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to "新規登録", new_user_path %></li>
+      <% end %>
     </ul>
-  </ul>
-</header>
+  </header>
+
+<% end %>
 
 <p id="notice"><%= notice %></p>
 
 <%= yield %>
-
-<%= debug(params) %>
-<%= debug( Hash[ CartItem.ids.zip CartItem.all.map(&:status) ] ) %>
 
 </body>
 </html>
