@@ -12,7 +12,7 @@
 
 <header>
   <ul>
-    <li><%= link_to "花を探す", new_cart_item_path %></li>
+    <li><%= link_to "花を選ぶ", new_cart_item_path %></li>
     <li>
       <% if loggedin? %>
         <%= link_to "マイページ", current_user %>
@@ -31,6 +31,7 @@
 <%= yield %>
 
 <%= debug(params) %>
+<%= debug( Hash[ CartItem.ids.zip CartItem.all.map(&:status) ] ) %>
 
 </body>
 </html>

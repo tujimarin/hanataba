@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
 
   def index
     @items      = Item.all
-    @cart_items = User.find(current_user.id).cart_items.all
+    @cart_items = User.find(current_user.id).cart_items.where(status: 0)
   end
 
   def show
@@ -18,10 +18,23 @@ class CartItemsController < ApplicationController
   def create
     set_cart_items.each_key do |id|
       User.find(current_user.id).cart_items.create(
-        item_id: id.to_i, amount: set_cart_items[id], status: 0, change_status_date: Date.today)
+        item_id: id.to_i,
+        amount: set_cart_items[id],
+        status: 0,
+        change_status_date: Date.today
+      )
     end
 
-    redirect_to( { action: :index }, notice: 'カートの中身を更新しました。')
+    redirect_to( { action: :index }, notice: 'カートに追加しました。')
+  end
+
+  def purchase
+    @cart_items = User.find(current_user.id).cart_items.where(status: 0)
+    @cart_items.each do |ci|
+      ci.update(status: 1)
+    end
+
+    redirect_to( current_user, notice: "以下の商品を発注しました。")
   end
 
   def update

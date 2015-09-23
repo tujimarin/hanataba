@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 20150915110622) do
     t.text     "comment"
   end
 
+  create_table "user_items", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.integer  "amount"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_items", ["item_id"], name: "index_user_items_on_item_id"
+  add_index "user_items", ["user_id"], name: "index_user_items_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.integer  "postal_code"

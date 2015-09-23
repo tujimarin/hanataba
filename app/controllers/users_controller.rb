@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @items      = Item.all
+    @cart_items = User.find(current_user.id).cart_items.where(status: 1)
   end
 
   def new
@@ -36,6 +38,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    redirect_to users_url, notice: 'User was successfully destroyed.'
+  end
+
+  def cancel_item
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(status: 0)
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 

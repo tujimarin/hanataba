@@ -1,4 +1,30 @@
 <% provide(:title, ' 登録情報 ') %>
+<h2>発注中の商品</h2>
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>商品説明</th>
+      <th>発注数</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart_items.each do |ci| %>
+      <tr>
+        <td><%= @items.find(ci.item_id).name %></td>
+        <td><%= @items.find(ci.item_id).price %></td>
+        <td><%= @items.find(ci.item_id).comment %></td>
+        <td><%= ci.amount %></td>
+        <td><%= link_to 'キャンセル', ci,  method: :delete,
+          data: { confirm: '本当にキャンセルしますか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <h2>登録情報</h2>
 
 <p>
@@ -31,11 +57,5 @@
   <%= @user.email %>
 </p>
 
-<%= button_to '情報を編集する', edit_user_path(@user), method: :get %>
+<%= button_to '登録情報を編集する', edit_user_path(@user), method: :get %>
 
-<h3>発注中の花</h3>
-<ul>
-  <li>あさがお<%= button_to "削除", "#", method: :delete %></li>
-  <li>ひまわり<%= button_to "削除", "#", method: :delete %></li>
-  <li>バラ<%= button_to "削除", "#", method: :delete %></li>
-</ul>
