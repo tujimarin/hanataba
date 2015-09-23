@@ -3,7 +3,8 @@
 
 <header id="mainImg">
 
-  <%= image_tag 'common/main_content_img.jpg' %>
+  <%= image_tag 'common/site_title_img.png',class: 'title_img' %>
+  <%= image_tag 'common/main_content_img.jpg',class: 'main_img' %>
 
   <%= form_for(:session, url: sessions_path) do |f| %>
     <div class="field">
@@ -21,12 +22,57 @@
 
 <nav>
   <ul>
-    <li class=""><%= link_to '商品一覧',:controller => 'cart_items' %></li>
-    <li class=""><%= link_to "カート" ,:controller => 'cart_items' %></li>
+    <li class="item_button_li"><%= link_to '商品一覧',{:controller => 'cart_items'},{:class =>'item_button'}%></li>
+    <li class="cart_button_li"><%= link_to "カート" ,{:controller => 'cart_items'},{:class =>'cart_button'}%></li>
   </ul>
 </nav>
 
-<h2>一輪でもHANATABA</h2>
-<p>HANATABA（仮）は、いつでもあなたの花欲に応えます。</p>
+<div id="product_contents">
+  <h2><%= image_tag('common/product_title.png') %></h2>
+  <ul>
+    <li>
+      <%= link_to image_tag('common/item001.png')+raw('<p><span>仮名仮名仮名</span><span>123456789円</span></p>'),{:controller => 'cart_items'}%>
+    </li>
+    <li>
+      <%= link_to image_tag('common/item002.png')+raw('<p><span>仮名仮名仮名</span><span>123456789円</span></p>'),{:controller => 'cart_items'}%>
+    </li>
+    <li>
+      <%= link_to image_tag('common/item003.png')+raw('<p><span>仮名仮名仮名</span><span>123456789円</span></p>'),{:controller => 'cart_items'}%>
+    </li>
+    <!-- 段分け -->
+    <li>
+      <%= link_to image_tag('common/item004.png')+raw('<p><span>仮名仮名仮名</span><span>123456789円</span></p>'),{:controller => 'cart_items'}%>
+    </li>
+    <li>
+      <%= link_to image_tag('common/item005.png')+raw('<p><span>仮名仮名仮名</span><span>123456789円</span></p>'),{:controller => 'cart_items'}%>
+    </li>
+    <li>
+      <%= link_to image_tag('common/item006.png')+raw('<p><span>仮名仮名仮名</span><span>123456789円</span></p>'),{:controller => 'cart_items'}%>
+    </li>
+  </ul>
+</div>
 
-<p><%= button_to "花を選ぶ", new_cart_item_path, method: :get %></p>
+<div id="news_contents">
+  <h2><%= image_tag('common/news_title.png') %></h2>
+  <dl>
+
+    <dt>お知らせ 2015/01/01</dt>
+    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+
+    <dt>お知らせ 2015/01/01</dt>
+    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+
+    <dt>お知らせ 2015/01/01</dt>
+    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+
+    <dt>お知らせ 2015/01/01</dt>
+    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+
+    <dt>お知らせ 2015/01/01</dt>
+    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+
+    <dt>お知らせ 2015/01/01</dt>
+    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+
+  </dl>
+</div>
