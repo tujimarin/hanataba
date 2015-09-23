@@ -1,5 +1,25 @@
 <% provide(:title, '') %>
 
+
+<header id="mainImg">
+
+  <%= image_tag 'common/main_content_img.jpg' %>
+
+  <%= form_tag({controller: :users , action: :index},id: :loginForm, class: :loginForm) do %>
+    <div><label>ユーザID</label><%= text_field_tag :userId,'',size:20 %></div>
+    <div><label>パスワード</label><%= password_field_tag :userPasswd,'',size:8 %></div>
+    <%= submit_tag 'ログイン',class: 'button' %>
+  <% end %>
+
+</header>
+
+<nav>
+  <ul>
+    <li class=""><%= link_to '商品一覧',:controller => 'cart_items' %></li>
+    <li class=""><%= link_to "カート" ,:controller => 'cart_items' %></li>
+  </ul>
+</nav>
+
 <h2>一輪でもHANATABA</h2>
 <p>HANATABA（仮）は、いつでもあなたの花欲に応えます。</p>
 
