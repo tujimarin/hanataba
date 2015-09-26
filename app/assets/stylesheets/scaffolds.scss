@@ -9,6 +9,7 @@ body {
 
 
 
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -28,7 +29,11 @@ div {
 }
 
 #notice {
-  color: green;
+  color: #048C21;
+  width: 100%;
+  background-color: rgba(255, 135, 135, 0.55);
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .field_with_errors {

@@ -9,6 +9,7 @@ header#mainImg{
    min-width:1000px;
    min-height:490px;
    overflow:hidden;
+   padding:0;
 
 }
 
@@ -81,11 +82,10 @@ header form{
 }
 
 #login_form a{
-  color:#FFF;
-  font-size:12px;
-  margin:5px auto 0 auto;
+  text-decoration: none;
+  color:#ffffff;
   display:block;
-  width:90%;
+  margin:5px 0 0 20px;
 }
 
 nav{
@@ -145,6 +145,27 @@ nav ul li a.item_button{
 nav ul li a.cart_button{
   display:inline-block;
   text-align:center;
+}
+
+
+#login_form p{
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin: 15px 0 20px 0;
+    font-weight: bold;
+}
+
+#login_form a.buttons{
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    margin: 0px auto 5px auto;
+    font-weight: bold;
+    width: 50%;
+    background-color: #C06F6B;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 /**product_contents
@@ -243,5 +264,134 @@ margin: 40px 0;
   width:45%;
   margin:0 auto 20px auto;
   font-size:14px;
+
+}
+
+/**nav
+/**----------------------------------------------**/
+header {
+  width:100%;
+  background-color:#EEEEEE;
+  padding:15px 0;
+
+}
+
+header h1#logo a{
+  background-color:rgba(199,145,145,0.8);
+  display:inline-block;
+  text-decoration:none;
+  width:10%;
+  font-size:15px;
+  height:20px;
+  color:#ffffff;
+  text-align:center;
+  padding:10px 0;
+  float:left;
+  margin-left:20px;
+
+}
+
+header ul{
+  width:80%;
+  float:left;
+  margin-left:40px;
+
+}
+
+header li{
+  float:left;
+  font-size:15px;
+  text-align:center;
+  margin:0 15px;
+}
+
+header li a{
+  background-color:rgba(199,145,145,0.8);
+  display:inline-block;
+  text-decoration:none;
+  font-size:15px;
+  height:20px;
+  color:#ffffff;
+  text-align:center;
+  float:left;
+  padding:10px 20px;
+}
+
+.clearfix:after {
+  content: ".";  /* 新しい要素を作る */
+  display: block;  /* ブロックレベル要素に */
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.clearfix {
+  min-height: 1px;
+}
+
+* html .clearfix {
+  height: 1px;
+  /*¥*//*/
+  height: auto;
+  overflow: hidden;
+  /**/
+}
+
+form input[type='submit']{
+  border:0;
+  padding:10px 5%;
+  margin:5px;
+  background-color:#CEA3A3;
+  color:#FFF;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
+
+}
+
+body h2{
+  font-size:24px;
+  width:90%;
+  text-align:left;
+  background-color:#CEA3A3;
+  color:#ffffff;
+  padding:10px 20px;;
+  border-radius:5px;
+  margin:20px auto;
+
+}
+
+body h2.bg_none{
+  background-color:#fff;
+  padding:0;
+  border-radius:0;
+  font-size:12px;
+}
+
+body table {
+  width:90%;
+  margin:0 auto;
+}
+
+table th{
+  padding:10px;
+  color:#ffffff;
+  background-color:#000000;
+  border:1px solid #ABABAb;
+  border-collapse:collapse;
+}
+
+table tr {}
+
+table tr td{
+  padding: 10px;
+    color: #000000;
+    background-color: #FFFFFF;
+    border: 1px solid #ABABAB;
+    border-collapse: collapse;
+}
+
+table.user_table th{
+  width:10%;
 
 }

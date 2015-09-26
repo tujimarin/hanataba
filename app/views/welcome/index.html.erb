@@ -7,29 +7,36 @@
   <%= image_tag 'common/main_content_img.jpg',class: 'main_img' %>
 
   <%= form_for(:session, url: sessions_path, html: {id: :login_form}) do |f| %>
-    <div class="field">
+    <% if logged_in? %>
+      <p>ようこそ<%= current_user.name %>さん</p>
+      <%= link_to "マイページ", current_user ,class: :buttons %>
+      <%= link_to "ログアウト", logout_path , method: :delete,class: :buttons %>
+    <% else %>
+      <div class="field">
       <%= f.label :tel, "電話番号" %>
       <%= f.telephone_field :tel %>
-    </div>
-    <div class="field">
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password %>
-    </div>
-    <%= f.submit "ログイン" %>
-    <%= link_to "新規登録はこちら", new_user_path %>
+      </div>
+      <div class="field">
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password %>
+      </div>
+      <%= f.submit "ログイン" %>
+      <%= link_to "新規登録はこちら", new_user_path %>
+    <% end %>
   <% end %>
 
 </header>
-
+<% if logged_in? %>
 <nav>
   <ul>
-    <li class="item_button_li"><%= link_to '商品一覧',{:controller => 'cart_items'},{:class =>'item_button'}%></li>
-    <li class="cart_button_li"><%= link_to "カート" ,{:controller => 'cart_items'},{:class =>'cart_button'}%></li>
+    <li class="item_button_li"><%= link_to '商品一覧',new_cart_item_path ,{:class =>'item_button'}%></li>
+    <li class="cart_button_li"><%= link_to "カート" ,cart_items_path,{:class =>'cart_button'}%></li>
   </ul>
 </nav>
+<% end %>
 
 <div id="product_contents">
-  <h2><%= image_tag('common/product_title.png') %></h2>
+  <h2 class="bg_none"><%= image_tag('common/product_title.png') %></h2>
   <ul>
     <li>
       <%= link_to image_tag('common/item001.png')+raw('<p><span>仮名仮名仮名</span><span>123456789円</span></p>'),{:controller => 'cart_items'}%>
@@ -54,26 +61,17 @@
 </div>
 
 <div id="news_contents">
-  <h2><%= image_tag('common/news_title.png') %></h2>
+  <h2 class="bg_none"><%= image_tag('common/news_title.png') %></h2>
   <dl>
 
-    <dt>お知らせ 2015/01/01</dt>
-    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+    <dt>お知らせ 2015/09/28</dt>
+    <dd>インターンシップ実施！ruby on rails を使ってMVCを学ぼう！</dd>
 
-    <dt>お知らせ 2015/01/01</dt>
-    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+    <dt>お知らせ 2015/09/25</dt>
+    <dd>池田さん人生という名の壁に登る！</dd>
 
-    <dt>お知らせ 2015/01/01</dt>
-    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
-
-    <dt>お知らせ 2015/01/01</dt>
-    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
-
-    <dt>お知らせ 2015/01/01</dt>
-    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
-
-    <dt>お知らせ 2015/01/01</dt>
-    <dd>新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報新着情報</dd>
+    <dt>お知らせ 2015/09/24</dt>
+    <dd>困った時は、お近くのスタッフに声をかけてね！</dd>
 
   </dl>
 </div>
